@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Создание аккаунта</title>
+</head>
+<body>
+<h2>Создание аккаунта</h2>
+<p>Введите имя пользователя и пароль</p>
+<form method="post" enctype="multipart/form-data" action="#" th:action="@{~/registration}" th:object="${userForm}">
+
+    <label for="username">Username</label>
+    <input th:field="*{username}" type="text" id="username">
+    <small class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
+
+    <label for="password">Password</label>
+    <input th:field="*{password}" type="password" id="password">
+    <small class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+
+    <label for="confirm_password">Confirm password</label>
+    <input th:field="*{confirmPassword}" type="password" id="confirm_password">
+
+    <button type="submit" value="Submit">Создать аккаунт</button>
+</form>
+</body>
+</html>
